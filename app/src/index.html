@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>App</title>
+  <title>Game</title>
 </head>
-<body>
-  
+<body ng-app="app">
+  <div id="container" ng-controller="main-Ctrl">
+    <div id="textBox">
+      <h1>Welcome to the dungeon, hero/ine!</h1>
+      {{action}}
+    </br>
+    </div>
+    <div id="gameBox" ng-controller="action-Ctrl">
+      <button ng-click="$parent.action = 'rangedAttack'">Ranged Attack</button>
+      <button ng-click="$parent.action = 'meleeAttack'">Melee Attack</button>
+      <button ng-model="evade">Evade</button>
+    </div>
+  </div>
 </body>
 </html>

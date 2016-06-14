@@ -1,0 +1,28 @@
+#container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#textBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 30%;
+    background-color:#DCD7DF;
+    text-align:center;
+}
+
+#gameBox {
+    position: absolute;
+    top: 70%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:#A2ABAE;
+    text-align:center;
+    color:#FFFFFF;
+}
