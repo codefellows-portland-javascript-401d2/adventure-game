@@ -3,33 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>Game</title>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-cloak>
   <div id="container" ng-controller="main-Ctrl">
     <div id="textBox">
       <h1>Welcome to the dungeon, hero/ine!</h1>
-    </br>
-    <p> This is a bunch of text telling you what's going on in this game</p>
-    {{action}}
+      <br>
+      <p> This is a bunch of text telling you what's going on in this game</p>
+      <p>{{action}}</p>
     </div>
     <div id="gameBox" ng-controller="action-Ctrl">
-      <button ng-click="dancingBears.health = dancingBears.health - 5"
-              >Ranged Attack</button>
-      <button ng-click="$parent.action = 'meleeAttack'">Melee Attack</button>
-      <button ng-click="$parent.action = 'evade'">Evade</button>
+      <md-button class="md-primary" ng-click="dancingBears.health = dancingBears.health - 5; $parent.action = 'rangedAttack'">
+        Ranged Attack
+      </md-button>
+      <md-button class="md-accent" ng-click="$parent.action = 'meleeAttack'">
+        Melee Attack
+      </md-button>
+      <md-button class="md-warn" ng-click="$parent.action = 'evade'">
+        Evade
+      </md-button>
+      <md-button flex="10" class="md-warn" ng-click="player.health = player.health - 5">
+        Punch Self
+      </md-button>
 
-      <div id="playerData">
-        <button ng-click="player.health = player.health - 5"
-                >HIT YOURSELF</button>
-        Health: {{player.health}} 
-        <br />
-        Stamina: {{player.stamina}}
+      <br>
+
+      <div id="statusContainer" layout="row" layout-align="space-around none">
+
+        <div id="playerData" flex="35" layout="column">
+          <div>
+            <p>Health: <span>{{player.health}}</span></p>
+          </div> 
+          <div md-theme="statusBars">
+            <md-progress-linear class="md-primary" md-mode="determinate" value="{{player.health}}"></md-progress-linear>
+          </div>
+          <div>
+            <p>Stamina: <span>{{player.stamina}}</span></p>
+          </div>
+          <div md-theme="statusBars">
+            <md-progress-linear class="md-accent" md-mode="determinate" value="{{player.stamina}}"></md-progress-linear>
+          </div>
+        </div>
+
+        <div id="monsterData" flex="35" layout="column">
+          <div>
+            {{dancingBears.name}}
+          </div>
+          <div>
+            Health: {{dancingBears.health}}
+          </div> 
+          <div md-theme="statusBars">
+            <md-progress-linear class="md-primary" md-mode="determinate" value="{{dancingBears.currentHealth}}"></md-progress-linear>
+          </div>
+        </div>
+
       </div>
-      <div id="monsterData">
-        Monster <br>
-        Name: {{dancingBears.name}} <br>
-        Health: {{dancingBears.health}} <br>
-      </div>
+
     </div>
   </div>
 </body>

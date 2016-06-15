@@ -12,7 +12,7 @@
     right: 0;
     left: 0;
     bottom: 30%;
-    background-color:#DCD7DF;
+    /*background-color:#DCD7DF;*/
     text-align:center;
 }
 
@@ -22,7 +22,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color:#A2ABAE;
+    /*background-color:#A2ABAE;*/
     text-align:center;
-    color:#FFFFFF;
+    color:#000;
 }
