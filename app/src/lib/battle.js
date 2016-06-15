@@ -1,56 +1,90 @@
 var battle = {};
 
+/***************************************************/
+/*           EXAMPLE PLAYER AND MOB               */
+/*************************************************/
+
 var player = {
   name: 'Link',
-  hp: 20,
-  stamina: 20
+  hp: 100,
+  stamina: 100
 };
 
 var mob = {
   name: 'FancySnake',
-  hp: 50,
+  hp: 30,
   attack: 5
 };
 
+
+/***************************************************/
+/*               PLAYER GETS HIT                  */
+/*************************************************/
+
+
 battle.getsHit = function(){
-  var newHp = player.hp - mob.attack;
-  console.log('HP: ' + newHp);
-  player.hp = newHp;
+
+  player.hp -= mob.attack;  //player takes normal damage
 
   if (player.hp <= 0) {
-    console.log('Game Over');
+    console.log('Game Over'); // TODO: have to do something to stop game here
   }
 };
 
-getsHit();
-getsHit();
-getsHit();
-getsHit();
+
+/***************************************************/
+/*              PLAYER MELEE ATTACK               */
+/*************************************************/
+
 
 battle.attacksMelee = function(){
 
-  if(player.stamina < 5) {
+  if(player.stamina < 5) { //attacks need stamina to work
 
-    console.log('You are out of stamina');
-    //Nothing happens
+    console.log('You are out of stamina'); //Nothing happens
 
   } else {
 
-    var newMobHp = mob.hp - 5;
-    console.log('Mob HP: ' + newMobHp);
-    mob.hp = newMobHp;
-    var newStamina = player.stamina -5;
-    console.log('Stamina: ' + newStamina);
-    player.stamina = newStamina;
+    mob.hp -= 5; // mob gets hit for normal damage
+    player.stamina -= 5; // player uses up stamina in attack
 
     if(mob.hp <= 0) {
-      console.log('You win, moving on!');
+      console.log('You win, moving on!'); // TODO: do something to shift to next room
     }
   }
 };
 
+
+/***************************************************/
+/*              PLAYER RANGE ATTACK               */
+/*************************************************/
+
+
+battle.attacksRange = function(){
+
+  if(player.stamina < 3) { //attacks need stamina to work
+
+    console.log('You are out of stamina'); //Nothing happens
+
+  } else {
+
+    mob.hp -= 3; // mob gets hit for normal damage
+
+    player.stamina -= 3; // player uses up stamina in attack
+
+    if(mob.hp <= 0) {
+      console.log('You win, moving on!'); // TODO: do something to shift to next room
+    }
+  }
+};
+
+/***************************************************/
+/*                PLAYER EVADE                    */
+/*************************************************/
+
+
 function randomNumber(min,max) {
-  return Math.floor(Math.random()*(max-min+1)+min);
+  return Math.floor(Math.random()*(max-min+1)+min); // generating random number
 }
 
 battle.evadeAttack = function(){
@@ -59,32 +93,20 @@ battle.evadeAttack = function(){
 
   if (random < 3) {
 
-    console.log('Your evade was successfull!');
-    var newStamina = player.stamina + 3;
-    console.log('You have gained ' + newStamina + ' Stamina!');
-    player.stamina = newStamina;
+    //Player Evade was successfull
+    player.stamina += 3;  //Player gains stamina and does not get hit
 
   } else if (random < 5) {
 
-    console.log('Your evade failed!');
-    var newHp = player.hp - mob.attack;
-    console.log('HP: ' + newHp);
-    player.hp = newHp;
+    //Player Evade failed
+    player.hp -= mob.attack;  //Player takes normal amount of damage and gains no stamina
 
   } else {
 
-    console.log('Your evade did not quite work out. You still got hit!');
-
-    var newHp = player.hp - (mob.attack * 0.5);
-    console.log('HP: ' + newHp);
-    player.hp = newHp;
-
-
-    console.log('You have gained ' + newStamina + ' Stamina!');
-    player.stamina += 1;
+    //Player Evade is kinda successfull
+    player.hp -= mob.attack * 0.5; //Player takes 50% of the damage
+    player.stamina += 1; //Player gains a small amount of stamina
   }
 };
-
-
 
 module.exports = battle;
