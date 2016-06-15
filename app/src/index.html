@@ -53,14 +53,13 @@
 
         <div id="monsterData" flex="35" layout="column">
           <div>
-            {{dancingBears.name}}
-          </div>
-          <div>
-            Health: {{dancingBears.health}}
+            <!--<p>Health: <span>{{dancingBears.health}}</span></p>-->
+            <p>Enemy: <span>{{dancingBears.name}}</span></p>
           </div> 
           <div md-theme="statusBars">
             <md-progress-linear class="md-primary" md-mode="determinate" value="{{dancingBears.currentHealth}}"></md-progress-linear>
           </div>
+
         </div>
 
       </div>
