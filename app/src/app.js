@@ -1,10 +1,14 @@
 const angular = require('angular');
 const material = require('angular-material');
+var player = require('./lib/player');
+var Monster = require('./lib/monster');
+var gameState = require('./lib/game-state');
 
 require('./css/main.css');
 
 const app = angular.module('app', [material]);
 
+// Configure Colors and Theme
 app.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('statusBars')
     .primaryPalette('red')
@@ -13,8 +17,17 @@ app.config(function($mdThemingProvider) {
     .backgroundPalette('grey');
 });
 
+// Main Controller for Managing Game States and Globals
 app.controller('main-Ctrl', function($scope) {
-  // $scope.action = 'Make a Move!';
+
+  $scope.levelCounter = 0; // Should be adding one to this on Next Level
+  $scope.currentLevel = function(count = $scope.levelCounter) {
+    if (count < gameState.levels.length) return gameState.levels[count];
+    else return gameState.levels[gameState.levels.length - 1];
+  };
+
+  $scope.player = player;
+
   $scope.decision = null;
   $scope.action = function(text = $scope.decision){
     if (text){
@@ -24,42 +37,28 @@ app.controller('main-Ctrl', function($scope) {
         return text + '. The monster giggles.';
       }else{
         return text + '.  The monster howls in pain';
-      }
+      } 
     }else{
       return 'Make a move';
     }
   };
 });
 
-app.controller('action-Ctrl', function($scope) {
-
-  var Monster = function(name, health, damage, accuracy, weakness) {
-    this.name = name;
-    this.maxHealth = health;
-    this.damage = damage;
-    this.accuracy = accuracy;
-    this.weakness = weakness;
-    this.health = this.maxHealth;
-    // this.currentHealth = (this.health * 100) / this.maxHealth;
-  };
-
-  var player = {
-    health: 100,
-    stamina: 100,
-    evade: 0.75
-  };
-
-  $scope.player = player;
-  $scope.dancingBears = new Monster('Dancing Bears', 30, 15, 0.5, 'r');
-  $scope.funnySnakes = new Monster('Funny Snakes', 10, 5, 0.9, 'm');
-
-  $scope.$watch('dancingBears.health', function(newValue) {
-    $scope.dancingBears.currentHealth = (newValue * 100) / $scope.dancingBears.maxHealth;
-  });
+// Output Controller for Text Line Output
+app.controller('output-Ctrl', function($scope) {
 
 });
 
-// app.controller('player-Ctrl', playerCtrl);
-// app.controller('monster-Ctrl', monsterCtrl);
+// Action Controller 
+app.controller('action-Ctrl', function($scope) {
+
+  $scope.dancingBears = new Monster('Dancing Bears', 30, 15, 0.5, 'r');
+  $scope.funnySnakes = new Monster('Funny Snakes', 10, 5, 0.9, 'm');
+
+  $scope.dancingBears.currentHealth = function(newValue = $scope.dancingBears.health) {
+    return (newValue * 100) / $scope.dancingBears.maxHealth;
+  };
+
+});
 
 module.exports = app.name;
