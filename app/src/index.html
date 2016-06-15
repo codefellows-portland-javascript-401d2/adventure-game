@@ -8,14 +8,28 @@
   <div id="container" ng-controller="main-Ctrl">
     <div id="textBox">
       <h1>Welcome to the dungeon, hero/ine!</h1>
-      {{action}}
     </br>
     <p> This is a bunch of text telling you what's going on in this game</p>
+    {{action}}
     </div>
     <div id="gameBox" ng-controller="action-Ctrl">
-      <button ng-click="$parent.action = 'rangedAttack'">Ranged Attack</button>
-      <button ng-model="attackM">Melee Attack</button>
-      <button ng-model="evade">Evade</button>
+      <button ng-click="dancingBears.health = dancingBears.health - 5"
+              >Ranged Attack</button>
+      <button ng-click="$parent.action = 'meleeAttack'">Melee Attack</button>
+      <button ng-click="$parent.action = 'evade'">Evade</button>
+
+      <div id="playerData">
+        <button ng-click="player.health = player.health - 5"
+                >HIT YOURSELF</button>
+        Health: {{player.health}} 
+        <br />
+        Stamina: {{player.stamina}}
+      </div>
+      <div id="monsterData">
+        Monster <br>
+        Name: {{dancingBears.name}} <br>
+        Health: {{dancingBears.health}} <br>
+      </div>
     </div>
   </div>
 </body>
