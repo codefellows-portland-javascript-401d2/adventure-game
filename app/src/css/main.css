@@ -26,3 +26,7 @@
     text-align:center;
     color:#000;
 }
+
+.player-action {
+    font-weight: bold;
+}

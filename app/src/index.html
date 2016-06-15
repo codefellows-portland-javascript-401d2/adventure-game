@@ -11,19 +11,24 @@
       <h1>Welcome to the dungeon, hero/ine!</h1>
       <br>
       <p> This is a bunch of text telling you what's going on in this game</p>
-      <p>{{action}}</p>
+      <p class="player-action">{{action}}</p>
     </div>
     <div id="gameBox" ng-controller="action-Ctrl">
-      <md-button class="md-primary" ng-click="dancingBears.health = dancingBears.health - 5; $parent.action = 'rangedAttack'">
-        Ranged Attack
-      </md-button>
-      <md-button class="md-accent" ng-click="$parent.action = 'meleeAttack'">
+      <md-button class="md-primary" ng-click="dancingBears.health = dancingBears.health - 5; 
+      $parent.action = 'meleeAttack';
+      player.stamina = player.stamina - 15">
         Melee Attack
+      </md-button>
+      <md-button class="md-accent" ng-click="dancingBears.health = dancingBears.health - 3;
+      $parent.action = 'rangedAttack';
+      player.stamina = player.stamina - 7">
+        Ranged Attack
       </md-button>
       <md-button class="md-warn" ng-click="$parent.action = 'evade'">
         Evade
       </md-button>
-      <md-button flex="10" class="md-warn" ng-click="player.health = player.health - 5">
+      <md-button flex="10" class="md-warn" ng-click="player.health = player.health - 5;
+      $parent.action = 'stop hitting yourself'">
         Punch Self
       </md-button>
 
