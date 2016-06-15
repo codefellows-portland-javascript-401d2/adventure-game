@@ -89,7 +89,7 @@ function randomNumber(min,max) {
 
 battle.evadeAttack = function(){
 
-  var random = randomNumber(1,6);
+  var random = randomNumber(1,8);
 
   if (random < 3) {
 
@@ -101,9 +101,15 @@ battle.evadeAttack = function(){
     //Player Evade failed
     player.hp -= mob.attack;  //Player takes normal amount of damage and gains no stamina
 
+  } else if (random < 7) {
+
+    //Player Evade is kinda successfull A
+    player.hp -= mob.attack * 0.5; //Player takes 50% of the damage
+    mob.hp -= 5 * 0.5; //Player deals 50% damage to mob
+
   } else {
 
-    //Player Evade is kinda successfull
+    //Player Evade is kinda successfull B
     player.hp -= mob.attack * 0.5; //Player takes 50% of the damage
     player.stamina += 1; //Player gains a small amount of stamina
   }
