@@ -43,7 +43,7 @@ battle.getsHit = function(){
 
 battle.attacksMelee = function(){
 
-  if(player.stamina < 5) { //attacks need stamina to work
+  if (player.stamina < 5) { //attacks need stamina to work
 
     console.log('You are out of stamina'); //Nothing happens
 
@@ -60,7 +60,7 @@ battle.attacksMelee = function(){
       player.stamina -= 5; // player uses up stamina in attack
 
     };
-    if(mob.hp <= 0) {
+    if (mob.hp <= 0 && player.hp > 0) {
       console.log('You win, moving on!'); // TODO: do something to shift to next room
     }
 
@@ -75,7 +75,7 @@ battle.attacksMelee = function(){
 
 battle.attacksRanged = function(){
 
-  if(player.stamina < 3) { //attacks need stamina to work
+  if (player.stamina < 3) { //attacks need stamina to work
 
     console.log('You are out of stamina'); //Nothing happens
 
@@ -92,7 +92,7 @@ battle.attacksRanged = function(){
       player.stamina -= 3; // player uses up stamina in attack
 
     };
-    if(mob.hp <= 0) {
+    if (mob.hp <= 0 && player.hp > 0) {
       console.log('You win, moving on!'); // TODO: do something to shift to next room
     }
 
