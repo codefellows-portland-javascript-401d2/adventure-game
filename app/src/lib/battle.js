@@ -7,13 +7,17 @@ var battle = {};
 var player = {
   name: 'Link',
   hp: 100,
-  stamina: 100
+  stamina: 100,
+  meleeDmg: 5,
+  rangedDmg: 3
 };
 
 var mob = {
   name: 'FancySnake',
   hp: 30,
-  attack: 5
+  attack: 5,
+  weaknessMelee: false,
+  weaknessRanged: true
 };
 
 
@@ -45,12 +49,21 @@ battle.attacksMelee = function(){
 
   } else {
 
-    mob.hp -= 5; // mob gets hit for normal damage
-    player.stamina -= 5; // player uses up stamina in attack
+    if (mob.weaknessMelee === false){  // mob has no melee weakness
 
+      mob.hp -= player.meleeDmg; // mob gets hit for normal damage
+      player.stamina -= 5; // player uses up stamina in attack
+
+    } else {  // mob has melee weakness
+
+      mob.hp -= player.meleeDmg * 0.3; // mob takes extra damage from melee attack
+      player.stamina -= 5; // player uses up stamina in attack
+
+    };
     if(mob.hp <= 0) {
       console.log('You win, moving on!'); // TODO: do something to shift to next room
     }
+
   }
 };
 
@@ -60,7 +73,7 @@ battle.attacksMelee = function(){
 /*************************************************/
 
 
-battle.attacksRange = function(){
+battle.attacksRanged = function(){
 
   if(player.stamina < 3) { //attacks need stamina to work
 
@@ -68,13 +81,21 @@ battle.attacksRange = function(){
 
   } else {
 
-    mob.hp -= 3; // mob gets hit for normal damage
+    if (mob.weaknessRanged === false){  // mob has no ranged weakness
 
-    player.stamina -= 3; // player uses up stamina in attack
+      mob.hp -= player.rangedDmg; // mob gets hit for normal damage
+      player.stamina -= 3; // player uses up stamina in attack
 
+    } else {  // mob has melee weakness
+
+      mob.hp -= player.rangedDmg * 0.3; // mob takes extra damage from ranged attack
+      player.stamina -= 3; // player uses up stamina in attack
+
+    };
     if(mob.hp <= 0) {
       console.log('You win, moving on!'); // TODO: do something to shift to next room
     }
+
   }
 };
 
