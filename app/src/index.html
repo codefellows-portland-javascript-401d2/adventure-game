@@ -12,27 +12,21 @@
       <h1>{{$parent.currentLevel()}}</h1>
       <br>
       <p> This is a bunch of text telling you what's going on in this game</p>
-      <p class="$parent.player-action">{{$parent.action()}}</p>
+      <p class="player-action">{{$parent.action()}}</p>
     </div>
 
     <div id="gameBox" ng-controller="action-Ctrl">
-      <md-button class="md-primary" ng-click="dancingBears.health = dancingBears.health - 5;
-      $parent.decision = 'MeleeAttack';
-      $parent.player.stamina = $parent.player.stamina - 15">
-        Melee Attack
+      <md-button class="md-primary" ng-click="$parent.input('A')">
+        {{$parent.inputA}}
       </md-button>
-      <md-button class="md-accent" ng-click="dancingBears.health = dancingBears.health - 3;
-      $parent.decision = 'RangedAttack';
-      $parent.player.stamina = $parent.player.stamina - 7">
-        Ranged Attack
+      <md-button class="md-accent" ng-click="$parent.input('B')">
+        {{$parent.inputB}}
       </md-button>
-      <md-button class="md-warn" ng-click="$parent.decision = 'Evade'">
-        Evade
+      <md-button class="md-warn" ng-click="$parent.input('C')">
+        {{$parent.inputC}}
       </md-button>
-      <md-button flex="10" class="md-warn" ng-click="$parent.player.health = $parent.player.health - 5;
-      $parent.decision = 'Stop hitting yourself';
-      $parent.levelCounter = $parent.levelCounter + 1;">
-        Punch Self
+      <md-button flex="10" class="md-warn" ng-click="$parent.input('D')">
+        {{$parent.inputD}}
       </md-button>
 
       <br>
