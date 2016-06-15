@@ -7,28 +7,31 @@
 </head>
 <body ng-app="app" ng-cloak>
   <div id="container" ng-controller="main-Ctrl">
-    <div id="textBox">
-      <h1>Welcome to the dungeon, hero/ine!</h1>
+
+    <div id="textBox" ng-controller="output-Ctrl">
+      <h1>{{$parent.currentLevel()}}</h1>
       <br>
       <p> This is a bunch of text telling you what's going on in this game</p>
-      <p class="player-action">{{action()}}</p>
+      <p class="$parent.player-action">{{$parent.action()}}</p>
     </div>
+
     <div id="gameBox" ng-controller="action-Ctrl">
       <md-button class="md-primary" ng-click="dancingBears.health = dancingBears.health - 5;
       $parent.decision = 'MeleeAttack';
-      player.stamina = player.stamina - 15">
+      $parent.player.stamina = $parent.player.stamina - 15">
         Melee Attack
       </md-button>
       <md-button class="md-accent" ng-click="dancingBears.health = dancingBears.health - 3;
       $parent.decision = 'RangedAttack';
-      player.stamina = player.stamina - 7">
+      $parent.player.stamina = $parent.player.stamina - 7">
         Ranged Attack
       </md-button>
       <md-button class="md-warn" ng-click="$parent.decision = 'Evade'">
         Evade
       </md-button>
-      <md-button flex="10" class="md-warn" ng-click="player.health = player.health - 5;
-      $parent.decision = 'Stop hitting yourself'">
+      <md-button flex="10" class="md-warn" ng-click="$parent.player.health = $parent.player.health - 5;
+      $parent.decision = 'Stop hitting yourself';
+      $parent.levelCounter = $parent.levelCounter + 1;">
         Punch Self
       </md-button>
 
@@ -38,26 +41,26 @@
 
         <div id="playerData" flex="35" layout="column">
           <div>
-            <p>Health: <span>{{player.health}}</span></p>
+            <p>Health: <span>{{$parent.player.health}}</span></p>
           </div>
           <div md-theme="statusBars">
-            <md-progress-linear class="md-primary" md-mode="determinate" value="{{player.health}}"></md-progress-linear>
+            <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.player.health}}"></md-progress-linear>
           </div>
           <div>
-            <p>Stamina: <span>{{player.stamina}}</span></p>
+            <p>Stamina: <span>{{$parent.player.stamina}}</span></p>
           </div>
           <div md-theme="statusBars">
-            <md-progress-linear class="md-accent" md-mode="determinate" value="{{player.stamina}}"></md-progress-linear>
+            <md-progress-linear class="md-accent" md-mode="determinate" value="{{$parent.player.stamina}}"></md-progress-linear>
           </div>
         </div>
 
         <div id="monsterData" flex="35" layout="column">
           <div>
-            <!--<p>Health: <span>{{dancingBears.health}}</span></p>-->
+            <p>Health: <span>{{dancingBears.health}}</span></p>
             <p>Enemy: <span>{{dancingBears.name}}</span></p>
           </div>
           <div md-theme="statusBars">
-            <md-progress-linear class="md-primary" md-mode="determinate" value="{{dancingBears.currentHealth}}"></md-progress-linear>
+            <md-progress-linear class="md-primary" md-mode="determinate" value="{{dancingBears.currentHealth()}}"></md-progress-linear>
           </div>
 
         </div>
