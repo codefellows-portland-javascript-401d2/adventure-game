@@ -14,11 +14,25 @@ app.config(function($mdThemingProvider) {
 });
 
 app.controller('main-Ctrl', function($scope) {
-  $scope.action = 'Make a Move!';
+  // $scope.action = 'Make a Move!';
+  $scope.decision = null;
+  $scope.action = function(text = $scope.decision){
+    if (text){
+      if (text === 'Evade'){
+        return text + '.  The monster attacks and misses!';
+      }else if (text === 'Stop hitting yourself'){
+        return text + '. The monster giggles.';
+      }else{
+        return text + '.  The monster howls in pain';
+      }
+    }else{
+      return 'Make a move';
+    }
+  };
 });
 
 app.controller('action-Ctrl', function($scope) {
-  
+
   var Monster = function(name, health, damage, accuracy, weakness) {
     this.name = name;
     this.maxHealth = health;
@@ -26,7 +40,7 @@ app.controller('action-Ctrl', function($scope) {
     this.accuracy = accuracy;
     this.weakness = weakness;
     this.health = this.maxHealth;
-    // this.currentHealth = (this.health * 100) / this.maxHealth; 
+    // this.currentHealth = (this.health * 100) / this.maxHealth;
   };
 
   var player = {
