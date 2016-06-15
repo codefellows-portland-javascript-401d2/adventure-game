@@ -61,3 +61,5 @@ app.controller('action-Ctrl', function($scope) {
 
 // app.controller('player-Ctrl', playerCtrl);
 // app.controller('monster-Ctrl', monsterCtrl);
+
+module.exports = app.name;
