@@ -15,7 +15,7 @@ export default function main($scope){
     else return gameState.levels[gameState.levels.length - 1];
   };
 
-  $scope.inCombat = true;
+  $scope.inCombat = false;
   $scope.inCombat = function(lvl = $scope.levelCounter) {
     if (lvl !== 0 && lvl % 2 === 0) return true;
     else return false;

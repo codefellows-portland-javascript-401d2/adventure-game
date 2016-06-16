@@ -35,4 +35,13 @@
     transition: transform .7s ease !important;
 }
 
+.btn {
+    padding: 2px 15px ;
+    width: 140px;
+}
+
+.btn-a {
+   color: orangered;
+}
+
 
