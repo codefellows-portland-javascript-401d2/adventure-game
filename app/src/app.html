@@ -1,7 +1,7 @@
 <div id="container" ng-controller="main">
 
   <div id="textBox" ng-controller="textbox">
-    <h1 ng-click="$parent.levelCounter = $parent.levelCounter + 1">{{$parent.currentLevel().title}}</h1>
+    <h1>{{$parent.currentLevel().title}}</h1>
     <br>
     <p>{{$parent.currentLevel().text}}</p>
     <p>In Combat: {{$parent.inCombat()}} // levelCounter: {{$parent.levelCounter}}</p>
@@ -12,13 +12,13 @@
     <md-button class="btn btn-a md-raised" ng-click="input('A')">
       {{inputA}}
     </md-button>
-    <md-button class="btn btn-b md-raised" ng-click="input('B')">
+    <md-button ng-hide="currentLevel().enemy === null && levelCounter !== 1 && levelCounter !== 2" class="btn btn-b md-raised" ng-click="input('B')">
       {{inputB}}
     </md-button>
-    <md-button class="btn btn-c md-raised" ng-click="input('C')">
+    <md-button ng-hide="currentLevel().enemy === null && levelCounter !== 1 && levelCounter !== 2" class="btn btn-c md-raised" ng-click="input('C')">
       {{inputC}}
     </md-button>
-    <md-button class="btn btn-d md-raised" ng-click="input('D')">
+    <md-button ng-hide="currentLevel().enemy === null && levelCounter !== 1 && levelCounter !== 2" class="btn btn-d md-raised" ng-click="input('D')">
       {{inputD}}
     </md-button>
 

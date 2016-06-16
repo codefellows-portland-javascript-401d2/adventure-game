@@ -8,27 +8,9 @@ main.inject = ['$scope'];
 
 export default function main($scope){
 
-  // created with the level
-
-  // $scope.mob = {
-  //   name: 'FancySnake',
-  //   hp: 30,
-  //   attack: 5,
-  //   weaknessMelee: false,
-  //   weaknessRanged: true,
-  //   healthFactor: 3.33
-  // };
-
   $scope.decision = null;
   $scope.player = player;
   $scope.mob = new Monster('Fancy Snakes', 30, 5, 0.9, 'r');
-  // $scope.player = {
-  //   name: 'Link',
-  //   hp: 100,
-  //   stamina: 100,
-  //   meleeDmg: 5,
-  //   rangedDmg: 3
-  // };
 
   $scope.levelCounter = 0; // Should be adding one to this on Next Level
   $scope.currentLevel = function(count = $scope.levelCounter) {
@@ -36,10 +18,9 @@ export default function main($scope){
     else return gameState.levels[gameState.levels.length - 1];
   };
 
-
   $scope.inCombat = false;
-  $scope.inCombat = function(lvl = $scope.levelCounter) {
-    if (lvl !== 0 && lvl % 2 === 0) return true;
+  $scope.inCombat = function() {
+    if ($scope.currentLevel().enemy) return true;
     else return false;
   };
 
@@ -50,11 +31,23 @@ export default function main($scope){
       $scope.inputC = 'Evade';
       $scope.inputD = 'Punch Self';
     }
+    else if ($scope.levelCounter === 1) {
+      $scope.inputA = 'Rubber Chicken';
+      $scope.inputB = 'Wooden Spoon';
+      $scope.inputC = 'Manolo Stilettos';
+      $scope.inputD = 'Bowling Pin';
+    }
+    else if ($scope.levelCounter === 2) {
+      $scope.inputA = 'Squirt Gun';
+      $scope.inputB = 'Hard Cookies';
+      $scope.inputC = 'Compact Discs';
+      $scope.inputD = 'Flip Phones';
+    }
     else {
-      $scope.inputA = 'Go Left';
-      $scope.inputB = 'Go Up';
-      $scope.inputC = 'Go Down';
-      $scope.inputD = 'Go Right';
+      $scope.inputA = 'Let\'s Go!';
+      $scope.inputB = 'Not in Use';
+      $scope.inputC = 'Not in Use';
+      $scope.inputD = 'Not in Use';
     }
   };
 
@@ -72,7 +65,6 @@ export default function main($scope){
         battle.attacksMelee($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
-          $scope.mob = $scope.currentLevel();
         }
       }
       else if (button === 'B') {
@@ -81,7 +73,6 @@ export default function main($scope){
         battle.attacksRanged($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
-          $scope.mob = $scope.currentLevel();
         }
       }else if (button === 'C') {
         $scope.decision = 'You try to evade';
