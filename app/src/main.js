@@ -1,8 +1,8 @@
 import angular from 'angular';
 import app from './app';
 import template from './app.html';
-import './css/main.css';
 import 'angular-material/angular-material.min.css';
+import './css/main.css';
 
 import appMat from './config/material';
 

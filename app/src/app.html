@@ -1,45 +1,39 @@
 <div id="container" ng-controller="main">
 
   <div id="textBox" ng-controller="textbox">
-    <h1 ng-click="$parent.levelCounter = $parent.levelCounter + 1">{{$parent.currentLevel()}}</h1>
+    <h1 ng-click="$parent.levelCounter = $parent.levelCounter + 1">{{$parent.currentLevel().title}}</h1>
     <br>
-    <p> This is a bunch of text telling you what's going on in this game</p>
+    <p>{{$parent.currentLevel().text}}</p>
     <p>In Combat: {{$parent.inCombat()}} // levelCounter: {{$parent.levelCounter}}</p>
     <p>{{$parent.result()}}</p>
   </div>
 
-  <div id="gameBox" ng-controller="gamebox">
-    <md-button class="md-primary" ng-click="$parent.input('A')">
+  <div id="gameBox">
+    <md-button class="btn btn-a md-raised" ng-click="$parent.input('A')">
       {{$parent.inputA}}
     </md-button>
-    <md-button class="md-accent" ng-click="$parent.input('B')">
+    <md-button class="btn btn-b md-raised" ng-click="$parent.input('B')">
       {{$parent.inputB}}
     </md-button>
-    <md-button class="md-warn" ng-click="$parent.input('C')">
+    <md-button class="btn btn-c md-raised" ng-click="$parent.input('C')">
       {{$parent.inputC}}
     </md-button>
-    <md-button flex="10" class="md-warn" ng-click="$parent.input('D')">
+    <md-button class="btn btn-d md-raised" ng-click="$parent.input('D')">
       {{$parent.inputD}}
     </md-button>
 
     <br>
 
-    <div id="statusContainer" layout="row" layout-align="space-around none" ng-controller="status">
+    <div id="statusContainer" layout="row" layout-align="space-around none" ng-controller="status" ng-show="$parent.inCombat() === true">
 
-      <div id="playerData" flex="35" layout="column">
-        <div>
-          <p>Health: <span>{{$parent.player.health}}</span></p>
-        </div>
-        <div md-theme="statusBars">
-          <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.player.hp}}"></md-progress-linear>
-        </div>
-        <div>
-          <p>Stamina: <span>{{$parent.player.stamina}}</span></p>
-        </div>
-        <div md-theme="statusBars">
-          <md-progress-linear class="md-accent" md-mode="determinate" value="{{$parent.player.stamina}}"></md-progress-linear>
-        </div>
+      <div id="playerData" flex="25" layout="column" layout-align="center start">
+        <p class="playerName">{{$parent.player.name}}</p>
+        <md-progress-linear md-theme="statusBars" class="md-primary" md-mode="determinate" value="{{$parent.player.hp}}"></md-progress-linear>
+        <p>HP: <span>{{$parent.player.hp}}</span></p>
+        <md-progress-linear md-theme="statusBars" class="md-accent" md-mode="determinate" value="{{$parent.player.stamina}}"></md-progress-linear>
+        <p>Stamina: <span>{{$parent.player.stamina}}</span></p>
       </div>
+      
 
       <div id="monsterData" flex="35" layout="column">
         <div>
@@ -48,10 +42,9 @@
         <div md-theme="statusBars">
           <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.mob.hp * $parent.mob.healthFactor}}"></md-progress-linear>
         </div>
-
       </div>
 
     </div>
-
   </div>
+  
 </div>
