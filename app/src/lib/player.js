@@ -1,6 +1,6 @@
 const player = {
   name: 'Karlor',
-  health: 100,
+  hp: 100,
   stamina: 100,
   evade: 0.75
 };
