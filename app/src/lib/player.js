@@ -1,8 +1,9 @@
 const player = {
-  name: 'Karlor',
+  name: 'Link',
   hp: 100,
   stamina: 100,
-  evade: 0.75
+  meleeDmg: 5,
+  rangedDmg: 3
 };
 
 module.exports = player;
