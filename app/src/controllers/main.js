@@ -1,4 +1,4 @@
-// const player = require('../lib/player');
+const player = require('../lib/player');
 const gameState = require('../lib/game-state');
 const settings = require('../lib/settings');
 const battle = require('../lib/battle');
@@ -8,30 +8,33 @@ main.inject = ['$scope'];
 export default function main($scope){
 
   // created with the level
-  $scope.mob = {
-    name: 'FancySnake',
-    hp: 30,
-    attack: 5,
-    weaknessMelee: false,
-    weaknessRanged: true,
-    healthFactor: 3.33
-  };
+ 
+  // $scope.mob = {
+  //   name: 'FancySnake',
+  //   hp: 30,
+  //   attack: 5,
+  //   weaknessMelee: false,
+  //   weaknessRanged: true,
+  //   healthFactor: 3.33
+  // };
 
   $scope.decision = null;
-  // $scope.player = player;
-  $scope.player = {
-    name: 'Link',
-    hp: 100,
-    stamina: 100,
-    meleeDmg: 5,
-    rangedDmg: 3
-  };
+  $scope.player = player;
+  // $scope.player = {
+  //   name: 'Link',
+  //   hp: 100,
+  //   stamina: 100,
+  //   meleeDmg: 5,
+  //   rangedDmg: 3
+  // };
 
   $scope.levelCounter = 0; // Should be adding one to this on Next Level
   $scope.currentLevel = function(count = $scope.levelCounter) {
     if (count < gameState.levels.length) return gameState.levels[count];
     else return gameState.levels[gameState.levels.length - 1];
   };
+
+  $scope.mob = $scope.currentLevel();
 
   $scope.inCombat = false;
   $scope.inCombat = function(lvl = $scope.levelCounter) {
@@ -65,6 +68,7 @@ export default function main($scope){
         battle.attacksMelee($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
+          $scope.mob = $scope.currentLevel();
         }
       }
       else {
@@ -79,6 +83,7 @@ export default function main($scope){
         battle.attacksRanged($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
+          $scope.mob = $scope.currentLevel();
         }
       }
       else {

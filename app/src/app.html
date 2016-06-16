@@ -9,17 +9,17 @@
   </div>
 
   <div id="gameBox">
-    <md-button class="btn btn-a md-raised" ng-click="$parent.input('A')">
-      {{$parent.inputA}}
+    <md-button class="btn btn-a md-raised" ng-click="input('A')">
+      {{inputA}}
     </md-button>
-    <md-button class="btn btn-b md-raised" ng-click="$parent.input('B')">
-      {{$parent.inputB}}
+    <md-button class="btn btn-b md-raised" ng-click="input('B')">
+      {{inputB}}
     </md-button>
-    <md-button class="btn btn-c md-raised" ng-click="$parent.input('C')">
-      {{$parent.inputC}}
+    <md-button class="btn btn-c md-raised" ng-click="input('C')">
+      {{inputC}}
     </md-button>
-    <md-button class="btn btn-d md-raised" ng-click="$parent.input('D')">
-      {{$parent.inputD}}
+    <md-button class="btn btn-d md-raised" ng-click="input('D')">
+      {{inputD}}
     </md-button>
 
     <br>
@@ -37,14 +37,14 @@
 
       <div id="monsterData" flex="35" layout="column">
         <div>
-          <p>Enemy: <span>{{dancingBears.name}}</span></p>
+          <p>Enemy: <span>{{$parent.mob.name}}</span></p>
         </div>
         <div md-theme="statusBars">
-          <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.mob.hp * $parent.mob.healthFactor}}"></md-progress-linear>
+          <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.mob.hp * 100 / $parent.mob.maxHealth}}"></md-progress-linear>
         </div>
       </div>
 
     </div>
   </div>
-  
+
 </div>
