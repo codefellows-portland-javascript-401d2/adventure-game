@@ -31,7 +31,7 @@
           <p>Health: <span>{{$parent.player.health}}</span></p>
         </div>
         <div md-theme="statusBars">
-          <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.player.health}}"></md-progress-linear>
+          <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.player.hp}}"></md-progress-linear>
         </div>
         <div>
           <p>Stamina: <span>{{$parent.player.stamina}}</span></p>
@@ -46,7 +46,7 @@
           <p>Enemy: <span>{{dancingBears.name}}</span></p>
         </div>
         <div md-theme="statusBars">
-          <md-progress-linear class="md-primary" md-mode="determinate" value="{{dancingBears.currentHealth()}}"></md-progress-linear>
+          <md-progress-linear class="md-primary" md-mode="determinate" value="{{$parent.mob.hp * $parent.mob.healthFactor}}"></md-progress-linear>
         </div>
 
       </div>

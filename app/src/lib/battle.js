@@ -4,21 +4,21 @@ var battle = {};
 /*           EXAMPLE PLAYER AND MOB               */
 /*************************************************/
 
-var player = {
-  name: 'Link',
-  hp: 100,
-  stamina: 100,
-  meleeDmg: 5,
-  rangedDmg: 3
-};
+// var player = {
+//   name: 'Link',
+//   hp: 100,
+//   stamina: 100,
+//   meleeDmg: 5,
+//   rangedDmg: 3
+// };
 
-var mob = {
-  name: 'FancySnake',
-  hp: 30,
-  attack: 5,
-  weaknessMelee: false,
-  weaknessRanged: true
-};
+// var mob = {
+//   name: 'FancySnake',
+//   hp: 30,
+//   attack: 5,
+//   weaknessMelee: false,
+//   weaknessRanged: true
+// };
 
 
 /***************************************************/
@@ -26,7 +26,7 @@ var mob = {
 /*************************************************/
 
 
-battle.getsHit = function(){
+battle.getsHit = function(mob, player){
 
   player.hp -= mob.attack;  //player takes normal damage
 
@@ -41,7 +41,7 @@ battle.getsHit = function(){
 /*************************************************/
 
 
-battle.attacksMelee = function(){
+battle.attacksMelee = function(mob, player){
 
   if (player.stamina < 5) { //attacks need stamina to work
 
@@ -73,7 +73,7 @@ battle.attacksMelee = function(){
 /*************************************************/
 
 
-battle.attacksRanged = function(){
+battle.attacksRanged = function(mob, player){
 
   if (player.stamina < 3) { //attacks need stamina to work
 
@@ -108,7 +108,7 @@ function randomNumber(min,max) {
   return Math.floor(Math.random()*(max-min+1)+min); // generating random number
 }
 
-battle.evadeAttack = function(){
+battle.evadeAttack = function(mob, player){
 
   var random = randomNumber(1,8);
 
