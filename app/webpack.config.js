@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/main.js',
   output: {
     path: '../server/public',
     filename: 'bundle.js'
@@ -32,7 +32,11 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style!css'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html'
       }
     ]
-  } 
+  }
 };

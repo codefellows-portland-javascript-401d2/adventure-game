@@ -2,22 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Game</title>
-  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <title>Adventure Game</title>
 </head>
-<body ng-app="app">
-  <div id="container">
-    <div id="textBox">
-      <h1>Welcome to the dungeon, hero/ine!</h1>
-    </br>
-    <p> This is a bunch of text telling you what's going on in this game</p>
-    </div>
-    <div id="gameBox" ng-controller="action-Ctrl">
-      <button ng-click="action = 'rangedAttack'">Ranged Attack</button>
-      <button ng-model="attackM">Melee Attack</button>
-      <button ng-model="evade">Evade</button>
-      {{action}}
-    </div>
-  </div>
+<body>
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>
