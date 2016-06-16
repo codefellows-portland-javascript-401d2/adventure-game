@@ -1,10 +1,11 @@
 <div id="container" ng-controller="main">
 
   <div id="textBox" ng-controller="textbox">
-    <h1>{{$parent.currentLevel()}}</h1>
+    <h1 ng-click="$parent.levelCounter = $parent.levelCounter + 1">{{$parent.currentLevel()}}</h1>
     <br>
     <p> This is a bunch of text telling you what's going on in this game</p>
-    <p class="player-action">{{$parent.action()}}</p>
+    <p>In Combat: {{$parent.inCombat()}} // levelCounter: {{$parent.levelCounter}}</p>
+    <p>{{$parent.result()}}</p>
   </div>
 
   <div id="gameBox" ng-controller="gamebox">
@@ -42,7 +43,6 @@
 
       <div id="monsterData" flex="35" layout="column">
         <div>
-          <p>Health: <span>{{dancingBears.health}}</span></p>
           <p>Enemy: <span>{{dancingBears.name}}</span></p>
         </div>
         <div md-theme="statusBars">

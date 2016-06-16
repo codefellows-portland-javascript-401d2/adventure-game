@@ -30,3 +30,9 @@
 .player-action {
     font-weight: bold;
 }
+
+._md-bar2 {
+    transition: transform .7s ease !important;
+}
+
+
