@@ -15,7 +15,7 @@ gameState.levels = [
   {
     title: 'Battle in the Sewers',
     enemy: new Monster('Fancy Snakes', 30, 5, 0.9, 'r'),
-    text: ''
+    text: 'You come face to face with a coterie of Fancy Snakes. You know, like normal Snakes only way more fancy. They squint meanly at you from below their top-hats and hiss dangerously.'
   },
   {
     title: 'Dungeon',
@@ -24,7 +24,8 @@ gameState.levels = [
   },
   {
     title: 'Battle in the Dungeon',
-    enemy: new Monster('Dancing Bears', 30, 5, 0.9, 'r'), text: ''
+    enemy: new Monster('Dancing Bears', 30, 5, 0.9, 'r'), 
+    text: 'You come face to face with a troupe of Dancing Bears. They shimmy and shake, their big fluffy bear butts swaying from side to side. The biggest, meanest looking one gestures for you to step forward. You have been challenged to a dance-off! '
   },
   {
     title: 'Antechamber',
@@ -34,7 +35,7 @@ gameState.levels = [
   {
     title: 'Battle in the Antechamber',
     enemy: new Monster('Prancing Unicorns', 30, 5, 0.9, 'r'),
-    text: ''
+    text: 'You come face to face with a capricious herd of Prancing Unicorns. They are super glamorous with their shiny hair and flowing, luscious manes. Their glorious horns sparkle even in the dimness of the room. With a smirk you call them ‘Prancing Ponies’. They don’t get the reference. You decide they need to die.'
   },
   {
     title: 'Oratory',
@@ -44,7 +45,7 @@ gameState.levels = [
   {
     title: 'Battle in the Oratory',
     enemy: new Monster('OctoCat', 30, 5, 0.9, 'r'),
-    text: ''
+    text: 'You come face to face with a bevy of Coding Octocats. These freaks of nature are half cute, half hideous and completely obnoxious. They usually gather a cult of nerdy Nerds around them as guards but today you lucked out and they are by themselves. Don’t get too comfortable though these things are as mean as it gets!'
   },
   {
     title: 'Base of the High Tower',
@@ -54,7 +55,7 @@ gameState.levels = [
   {
     title: 'Final Battle',
     enemy: new Monster('Evil Wizard Blanon', 1000, 25, 0.8, 'r'),
-    text: 'Get ready for the FINAL BATTLE!'
+    text: 'You come face to face with the evil, mean super villain Baddie Blanon himself! “Ha, ha!”, he gloats “the princess/prince is mine! I cannot be defeated! Many ninjas, wizards, warriors and even pirates have tried. None survived. Prepare for your death!”. You smirk. Where all the others have failed you shall succeed. “I am not one of these things” you inform him-who-we-have-already-named, and he grows even more confident as he starts to attack. '
   }
 ];
 
