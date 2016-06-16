@@ -2,13 +2,14 @@ const player = require('../lib/player');
 const gameState = require('../lib/game-state');
 const settings = require('../lib/settings');
 const battle = require('../lib/battle');
+const Monster = require('../lib/monster');
 
 main.inject = ['$scope'];
 
 export default function main($scope){
 
   // created with the level
- 
+
   // $scope.mob = {
   //   name: 'FancySnake',
   //   hp: 30,
@@ -20,6 +21,7 @@ export default function main($scope){
 
   $scope.decision = null;
   $scope.player = player;
+  $scope.mob = new Monster('Fancy Snakes', 30, 5, 0.9, 'r');
   // $scope.player = {
   //   name: 'Link',
   //   hp: 100,
@@ -34,7 +36,6 @@ export default function main($scope){
     else return gameState.levels[gameState.levels.length - 1];
   };
 
-  $scope.mob = $scope.currentLevel();
 
   $scope.inCombat = false;
   $scope.inCombat = function(lvl = $scope.levelCounter) {
@@ -57,12 +58,15 @@ export default function main($scope){
     }
   };
 
-// listens for change to switch inputs
+  // listens for change to switch inputs
   $scope.$watch('switchInputs()', function() {});
 
   $scope.input = function(button) {  // Needs to be dynamic according to State
-    if (button === 'A') {
-      if ($scope.inCombat()) {
+
+    if ($scope.inCombat()){
+
+      if (button === 'A'){
+        console.log($scope.mob.hp);
         $scope.decision = 'You attack with melee weapon';
         // $scope.player.stamina -= settings.meleeCost;
         battle.attacksMelee($scope.mob, $scope.player);
@@ -71,13 +75,7 @@ export default function main($scope){
           $scope.mob = $scope.currentLevel();
         }
       }
-      else {
-        // Moves Left
-        $scope.decision = 'You moved left';
-      }
-    }
-    else if (button === 'B') {
-      if ($scope.inCombat()) {
+      else if (button === 'B') {
         $scope.decision = 'You attack with ranged weapon';
         // $scope.player.stamina -= settings.rangedCost;
         battle.attacksRanged($scope.mob, $scope.player);
@@ -85,35 +83,26 @@ export default function main($scope){
           $scope.levelCounter += 1;
           $scope.mob = $scope.currentLevel();
         }
-      }
-      else {
-        // Moves Up
-        $scope.decision = 'You moved up';
-      }
-    }
-    else if (button === 'C') {
-      if ($scope.inCombat()) {
+      }else if (button === 'C') {
         $scope.decision = 'You try to evade';
         battle.evadeAttack($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
         }
-      }
-      else {
-        // Moves Down
-        $scope.decision = 'You moved down';
-      }
-    }
-    else if (button === 'D') {
-      if ($scope.inCombat()) {
+      }else if (button === 'D') {
         $scope.decision = 'Stop hitting yourself';
         $scope.player.health -= settings.rangedDamage;
       }
-      else {
-        // Moves Right
-        $scope.decision = 'You moved right';
+    }else{
+      $scope.levelCounter += 1;
+
+      // NOt in combat
+      if ($scope.currentLevel($scope.levelCounter).enemy) {
+        $scope.mob = $scope.currentLevel($scope.levelCounter).enemy;
       }
     }
+
+
   };
 
   $scope.result = function() {
