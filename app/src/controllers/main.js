@@ -43,11 +43,11 @@ export default function main($scope){
       $scope.inputC = 'Compact Discs';
       $scope.inputD = 'Flip Phones';
     }
+    else if (!$scope.currentLevel().intro) {
+      $scope.inputA = 'To Battle!';
+    }
     else {
       $scope.inputA = 'Let\'s Go!';
-      $scope.inputB = 'Not in Use';
-      $scope.inputC = 'Not in Use';
-      $scope.inputD = 'Not in Use';
     }
   };
 

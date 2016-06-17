@@ -18,7 +18,7 @@
     <md-button ng-hide="currentLevel().enemy === null && levelCounter !== 1 && levelCounter !== 2" class="btn btn-c md-raised" ng-click="input('C')">
       {{inputC}}
     </md-button>
-    <md-button ng-hide="currentLevel().enemy === null && levelCounter !== 1 && levelCounter !== 2" class="btn btn-d md-raised" ng-click="input('D')">
+    <md-button ng-hide="currentLevel().enemy === null && currentLevel().weaponSelect !== true" class="btn btn-d md-raised" ng-click="input('D')">
       {{inputD}}
     </md-button>
 
