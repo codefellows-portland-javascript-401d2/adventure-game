@@ -10,10 +10,13 @@ export default function main($scope){
 
   $scope.decision = null;
   $scope.mobaction = null;
+  
   $scope.player = player;
+  $scope.player.melee = null;
+  $scope.player.ranged = null;
   $scope.mob = new Monster('Fancy Snakes', 30, 5, 0.9, 'r');
 
-  $scope.levelCounter = 0; // Should be adding one to this on Next Level
+  $scope.levelCounter = 0;
   $scope.currentLevel = function(count = $scope.levelCounter) {
     if (count < gameState.levels.length) return gameState.levels[count];
     else return gameState.levels[gameState.levels.length - 1];
@@ -44,6 +47,10 @@ export default function main($scope){
       $scope.inputC = 'Compact Discs';
       $scope.inputD = 'Stapler';
     }
+    else if ($scope.currentLevel().postBattle) {
+      $scope.inputA = 'Go Left';
+      $scope.inputB = 'Go Right';
+    }
     else if (!$scope.currentLevel().intro && !$scope.currentLevel().postBattle) {
       $scope.inputA = 'To Battle!';
     }
@@ -55,9 +62,9 @@ export default function main($scope){
   // listens for change to switch inputs
   $scope.$watch('switchInputs()', function() {});
 
-  $scope.input = function(button) {  // Needs to be dynamic according to State
+  $scope.input = function(button) {  
 
-    if ($scope.inCombat()){
+    if ($scope.inCombat()) {
 
       if (button === 'A'){
         $scope.decision = 'You attack with melee weapon';
@@ -65,30 +72,35 @@ export default function main($scope){
         battle.attacksMelee($scope.mob, $scope.player);
         battle.getsHit($scope.mob, $scope.player);
 
-      }else if (button === 'B') {
+      }
+      else if (button === 'B') {
         $scope.decision = 'You attack with ranged weapon';
         $scope.mobaction = gameState.levels[$scope.levelCounter].melee || 'The mob attacks you';
         battle.attacksRanged($scope.mob, $scope.player);
         battle.getsHit($scope.mob, $scope.player);
 
-      }else if (button === 'C') {
+      }
+      else if (button === 'C') {
         $scope.decision = battle.evadeAttack($scope.mob, $scope.player);
         $scope.mobaction = null;
 
-      }else if (button === 'D') {
+      }
+      else if (button === 'D') {
         $scope.decision = 'Stop hitting yourself';
         $scope.player.hp -= settings.rangedDamage;
       }
 
       if ($scope.player.hp < 1){
         gameOver(false);
-      }else if ($scope.mob.hp < 1){
+      }
+      else if ($scope.mob.hp < 1){
         $scope.levelCounter += 1;
         $scope.decision = null;
         $scope.mobaction = null;
       }
 
-    }else{
+    } 
+    else {
       // NOt in combat
       $scope.levelCounter += 1;
 
@@ -102,7 +114,9 @@ export default function main($scope){
 
       $scope.player.stamina = 100;
 
-      if ($scope.currentLevel().weaponSelect && $scope.levelCounter === 1) {
+      if ($scope.currentLevel().weaponSelect === 2) {
+        $scope.player.melee = null;
+        
         if (button == 'A') {
           $scope.player.melee = 'Rubber Chicken';
         }
@@ -115,7 +129,9 @@ export default function main($scope){
         else if (button == 'D') {
           $scope.player.melee = 'Bowling Pin';
         }
-      } else if ($scope.currentLevel().weaponSelect && $scope.levelCounter === 2) {
+      } 
+      if ($scope.levelCounter === 3) {
+        $scope.player.ranged = null;
         if (button == 'A') {
           $scope.player.ranged = 'Squirt Gun';
         }
@@ -145,12 +161,6 @@ export default function main($scope){
   $scope.result = function() {
     return $scope.decision;
   };
-
-  // $scope.decideResult = function(){
-  //
-  //   $scope.result = 'yup un huh';
-  // };
-
 
 
 }

@@ -12,7 +12,7 @@
     right: 0;
     left: 0;
     bottom: 30%;
-    /*background-color:#DCD7DF;*/
+    overflow-y: scroll;
     text-align:center;
 }
 
@@ -22,7 +22,6 @@
     right: 0;
     left: 0;
     bottom: 0;
-    /*background-color:#A2ABAE;*/
     text-align:center;
     color:#000;
 }
@@ -37,7 +36,7 @@
 
 .btn {
     padding: 2px 15px ;
-    width: 140px;
+    width: 180px;
 }
 
 .btn-a {
@@ -49,6 +48,11 @@
     margin: 0 auto;
     line-height: 1.7;
     text-indent: 50px;
+}
+
+.action-text {
+    line-height: 1.7;
+    font-weight: bold;
 }
 
 

@@ -1,27 +1,6 @@
 var battle = {};
 
 /***************************************************/
-/*           EXAMPLE PLAYER AND MOB               */
-/*************************************************/
-
-// var player = {
-//   name: 'Link',
-//   hp: 100,
-//   stamina: 100,
-//   meleeDmg: 5,
-//   rangedDmg: 3
-// };
-
-// var mob = {
-//   name: 'FancySnake',
-//   hp: 30,
-//   attack: 5,
-//   weaknessMelee: false,
-//   weaknessRanged: true
-// };
-
-
-/***************************************************/
 /*               PLAYER GETS HIT                  */
 /*************************************************/
 

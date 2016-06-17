@@ -12,14 +12,14 @@ gameState.levels = [
     title: 'Weapon Select',
     enemy: null,
     intro: true,
-    weaponSelect: true,
+    weaponSelect: 1,
     text: 'You look around the area you woke up in, checking for clues. All those hours binge-watching Sherlock on Neflix come in handy as you immediately  home in on a clue -  a big pile of items lying right next to you. You inspect them a bit closer. It seems to be an assortment of weapons as well as a map with a big red X marking a castle on it. You can’t believe your luck. Blanon must have dropped these things when he kidnapped the princess/prince! You decide to grab two weapons and then follow the map to Blanon’s apparently-not-quite-so-super-secret lair. Which melee weapon do you choose?'
   },
   {
     title: 'Weapon Select',
     enemy: null,
     intro: true,
-    weaponSelect: true,
+    weaponSelect: 2,
     text: 'Sweet! What could possibly go wrong when you have a weapon like this? Now choose your Ranged Weapon, brave hero/ine!'
   },
   {
@@ -44,7 +44,7 @@ gameState.levels = [
     title: 'The Battle Has Been Won',
     enemy: null,
     postBattle: true,
-    text: 'With the battle won you now need to decide how to proceed from here. There are 4 stairways leading out of the sewers. One to the south, north, west and east respectively. All four look equally dark, dank and uninviting. Which one shall it be?'
+    text: 'With the battle won you now need to decide how to proceed from here. There are two stairways leading out of the sewers. One on the left and one on the right. Both passages look equally dark, dank and uninviting. Which one shall it be?'
   },
   {
     title: 'Dungeon',
@@ -125,10 +125,6 @@ gameState.levels = [
     text: 'With Blanon dead you rush to rescue the princess/prince from the top of the tower. S/he falls into your arms and softly whispers in your ear, Thank you sooooo much! You are the best friend ever! Princess/Prince friend-zones you for 1 gazillion points of damage! Can\'t win \'em all, cupcake. Can\'t win \'em all. '
   },
 ];
-
-
-
-
 
 
 module.exports = gameState;
