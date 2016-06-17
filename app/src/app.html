@@ -6,6 +6,7 @@
     <p>{{$parent.currentLevel().text}}</p>
     <p>In Combat: {{$parent.inCombat()}} // levelCounter: {{$parent.levelCounter}}</p>
     <p>{{$parent.result()}}</p>
+    <p>{{$parent.mobaction}}<p>
   </div>
 
   <div id="gameBox">
@@ -33,7 +34,7 @@
         <md-progress-linear md-theme="statusBars" class="md-accent" md-mode="determinate" value="{{$parent.player.stamina}}"></md-progress-linear>
         <p>Stamina: <span>{{$parent.player.stamina}}</span></p>
       </div>
-      
+
 
       <div id="monsterData" flex="35" layout="column">
         <div>

@@ -9,6 +9,7 @@ main.inject = ['$scope'];
 export default function main($scope){
 
   $scope.decision = null;
+  $scope.mobaction = null;
   $scope.player = player;
   $scope.mob = new Monster('Fancy Snakes', 30, 5, 0.9, 'r');
 
@@ -59,38 +60,61 @@ export default function main($scope){
     if ($scope.inCombat()){
 
       if (button === 'A'){
-        console.log($scope.mob.hp);
         $scope.decision = 'You attack with melee weapon';
+        $scope.mobaction = gameState.levels[$scope.levelCounter].ranged || 'The mob attacks you';
         // $scope.player.stamina -= settings.meleeCost;
         battle.attacksMelee($scope.mob, $scope.player);
+        battle.getsHit($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
+<<<<<<< HEAD
+=======
+          $scope.mob = $scope.currentLevel();
+          $scope.decision = null;
+          $scope.mobaction = null;
+>>>>>>> dave03
         }
       }
       else if (button === 'B') {
         $scope.decision = 'You attack with ranged weapon';
+        $scope.mobaction = gameState.levels[$scope.levelCounter].melee || 'The mob attacks you';
         // $scope.player.stamina -= settings.rangedCost;
         battle.attacksRanged($scope.mob, $scope.player);
+        battle.getsHit($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
+<<<<<<< HEAD
+=======
+          $scope.mob = $scope.currentLevel();
+          $scope.decision = null;
+          $scope.mobaction = null;
+>>>>>>> dave03
         }
       }else if (button === 'C') {
         $scope.decision = 'You try to evade';
         battle.evadeAttack($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
+          $scope.decision = null;
+          $scope.mobaction = null;
         }
       }else if (button === 'D') {
         $scope.decision = 'Stop hitting yourself';
         $scope.player.health -= settings.rangedDamage;
       }
     }else{
+      // NOt in combat
       $scope.levelCounter += 1;
 
-      // NOt in combat
+      $scope.decision = null;
+      $scope.mobaction = null;
+
+
       if ($scope.currentLevel($scope.levelCounter).enemy) {
         $scope.mob = $scope.currentLevel($scope.levelCounter).enemy;
       }
+
+      $scope.player.stamina = 100;
     }
 
 

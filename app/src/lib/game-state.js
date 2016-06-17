@@ -25,7 +25,9 @@ gameState.levels = [
   {
     title: 'Battle in the Sewers',
     enemy: new Monster('Fancy Snakes', 30, 5, 0.9, 'r'),
-    text: 'You come face to face with a coterie of Fancy Snakes. You know, like normal Snakes only way more fancy. They squint meanly at you from below their top-hats and hiss dangerously.'
+    text: 'You come face to face with a coterie of Fancy Snakes. You know, like normal Snakes only way more fancy. They squint meanly at you from below their top-hats and hiss dangerously.',
+    ranged: 'The Fancy Snakes hurl their monocles at you!',
+    melee: 'The Fancy Snakes nibble your toes'
   },
   {
     title: 'Dungeon',
@@ -34,8 +36,10 @@ gameState.levels = [
   },
   {
     title: 'Battle in the Dungeon',
-    enemy: new Monster('Dancing Bears', 30, 5, 0.9, 'r'), 
-    text: 'You come face to face with a troupe of Dancing Bears. They shimmy and shake, their big fluffy bear butts swaying from side to side. The biggest, meanest looking one gestures for you to step forward. You have been challenged to a dance-off! '
+    enemy: new Monster('Dancing Bears', 30, 5, 0.9, 'r'),
+    text: 'You come face to face with a troupe of Dancing Bears. They shimmy and shake, their big fluffy bear butts swaying from side to side. The biggest, meanest looking one gestures for you to step forward. You have been challenged to a dance-off! ',
+    ranged: 'The Dancing Bears traumatize you with some Dirty Dancing moves (the movie, dude. The movie!)',
+    meleee: 'The Dancing Bears push you to the ground and proceed to moonwalk all over you!'
   },
   {
     title: 'Antechamber',
@@ -45,7 +49,9 @@ gameState.levels = [
   {
     title: 'Battle in the Antechamber',
     enemy: new Monster('Prancing Unicorns', 30, 5, 0.9, 'r'),
-    text: 'You come face to face with a capricious herd of Prancing Unicorns. They are super glamorous with their shiny hair and flowing, luscious manes. Their glorious horns sparkle even in the dimness of the room. With a smirk you call them ‘Prancing Ponies’. They don’t get the reference. You decide they need to die.'
+    text: 'You come face to face with a capricious herd of Prancing Unicorns. They are super glamorous with their shiny hair and flowing, luscious manes. Their glorious horns sparkle even in the dimness of the room. With a smirk you call them ‘Prancing Ponies’. They don’t get the reference. You decide they need to die.',
+    ranged: 'The Prancing Unicorns befuddle you with their Rainbow Farts!',
+    melee: 'The Prancing Unicorns charge and stick you with the pointy end of their horns!'
   },
   {
     title: 'Oratory',
@@ -55,7 +61,9 @@ gameState.levels = [
   {
     title: 'Battle in the Oratory',
     enemy: new Monster('OctoCat', 30, 5, 0.9, 'r'),
-    text: 'You come face to face with a bevy of Coding Octocats. These freaks of nature are half cute, half hideous and completely obnoxious. They usually gather a cult of nerdy Nerds around them as guards but today you lucked out and they are by themselves. Don’t get too comfortable though these things are as mean as it gets!'
+    text: 'You come face to face with a bevy of Coding Octocats. These freaks of nature are half cute, half hideous and completely obnoxious. They usually gather a cult of nerdy Nerds around them as guards but today you lucked out and they are by themselves. Don’t get too comfortable though these things are as mean as it gets!',
+    ranged: 'The Coding Octocats throw a merge-conflict at you. The sheer confusion this brings sends you to your knees!',
+    melee: 'The Coding Octocats Add-Commit-Push you to the ground and use their tentacles to slap you silly!'
   },
   {
     title: 'Base of the High Tower',
@@ -65,7 +73,9 @@ gameState.levels = [
   {
     title: 'Final Battle',
     enemy: new Monster('Evil Wizard Blanon', 1000, 25, 0.8, 'r'),
-    text: 'You come face to face with the evil, mean super villain Baddie Blanon himself! \“Ha, ha!”, he gloats “the princess/prince is mine! I cannot be defeated! Many ninjas, wizards, warriors and even pirates have tried. None survived. Prepare for your death!”. You smirk. Where all the others have failed you shall succeed. “I am not one of these things” you inform him-who-we-have-already-named, and he grows even more confident as he starts to attack. '
+    text: 'You come face to face with the evil, mean super villain Baddie Blanon himself! \“Ha, ha!”, he gloats “the princess/prince is mine! I cannot be defeated! Many ninjas, wizards, warriors and even pirates have tried. None survived. Prepare for your death!”. You smirk. Where all the others have failed you shall succeed. “I am not one of these things” you inform him-who-we-have-already-named, and he grows even more confident as he starts to attack. ',
+    ranged: 'Blanon shoots you with the power of the Biforce!',
+    melee: 'Blanon shows some surprisingly fancy footwork and attacks you with his sword. As the steel cuts into your flesh you recognize the fabled Apprentice Sword.'
   }
 ];
 
