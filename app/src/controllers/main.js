@@ -62,40 +62,32 @@ export default function main($scope){
       if (button === 'A'){
         $scope.decision = 'You attack with melee weapon';
         $scope.mobaction = gameState.levels[$scope.levelCounter].ranged || 'The mob attacks you';
-        // $scope.player.stamina -= settings.meleeCost;
         battle.attacksMelee($scope.mob, $scope.player);
         battle.getsHit($scope.mob, $scope.player);
-        if ($scope.mob.hp < 1){
-          $scope.levelCounter += 1;
-          $scope.mob = $scope.currentLevel();
-          $scope.decision = null;
-          $scope.mobaction = null;
-        }
-      }
-      else if (button === 'B') {
+
+      }else if (button === 'B') {
         $scope.decision = 'You attack with ranged weapon';
         $scope.mobaction = gameState.levels[$scope.levelCounter].melee || 'The mob attacks you';
-        // $scope.player.stamina -= settings.rangedCost;
         battle.attacksRanged($scope.mob, $scope.player);
         battle.getsHit($scope.mob, $scope.player);
-        if ($scope.mob.hp < 1){
-          $scope.levelCounter += 1;
-          $scope.mob = $scope.currentLevel();
-          $scope.decision = null;
-          $scope.mobaction = null;
-        }
+
       }else if (button === 'C') {
-        $scope.decision = 'You try to evade';
-        battle.evadeAttack($scope.mob, $scope.player);
-        if ($scope.mob.hp < 1){
-          $scope.levelCounter += 1;
-          $scope.decision = null;
-          $scope.mobaction = null;
-        }
+        $scope.decision = battle.evadeAttack($scope.mob, $scope.player);
+        $scope.mobaction = null;
+
       }else if (button === 'D') {
         $scope.decision = 'Stop hitting yourself';
         $scope.player.health -= settings.rangedDamage;
       }
+
+      if ($scope.player.hp < 1){
+        gameOver(false);
+      }else if ($scope.mob.hp < 1){
+        $scope.levelCounter += 1;
+        $scope.decision = null;
+        $scope.mobaction = null;
+      }
+
     }else{
       // NOt in combat
       $scope.levelCounter += 1;
@@ -110,9 +102,17 @@ export default function main($scope){
 
       $scope.player.stamina = 100;
     }
-
-
   };
+
+  function gameOver(byBlanon){
+    $scope.player.hp = 0;
+    $scope.decision = null;
+    if (byBlanon){
+      $scope.mobaction = 'Game over! Well, Blanon sure kicked your butt. The princess/prince never gets rescued and ends up married to Blanon. The whole world goes to hell in a handbasket and it\'s all your fault. Also, you\'re dead.';
+    }else{
+      $scope.mobaction = 'Game over! You have been defeated by the mob. You\'re dead. It\'s over. The bad guys won. Your parents are super disappointed and nobody shows up for your funeral. You should be ashamed. But you\'re dead. ';
+    }
+  }
 
   $scope.result = function() {
     return $scope.decision;
