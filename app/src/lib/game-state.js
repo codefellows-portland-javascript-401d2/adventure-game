@@ -5,17 +5,28 @@ gameState.levels = [
   {
     title: 'Intro',
     enemy: null,
+    intro: true,
     text: 'Cold raindrops slowly drizzle upon your face as you sluggishly open your eyes. The storm clouds are thick in the sky and the meadow you lie in is already wet and muddy. You turn your head, looking around trying to get your bearings. As lighting strikes an old oak not too far from you, your memories suddenly come rushing back. Your crush, your intended, the love of your life! Gone, no worse - taken! You were out on a leisurely stroll with the princess/prince (hey, whatever rocks your boat, dude) when the evil, mean super villain Baddie Blanon showed up and stole your love away! He put a spell on you and you just could not stop hitting yourself! You still feel the urge even now. You must have knocked yourself out. At least all those hours in the gym seem to be paying off.You have seen enough superhero movies to know that this is your time to shine. You’ll find Blanon’s super-secret lair and rescue the princess/prince! S/he will be so overcome with gratefulness and so impressed with your amazing deed s/he will fall straight into your arms. Result! But where to start?'
   },
   {
     title: 'Weapon Select',
     enemy: null,
+    intro: true,
+    weaponSelect: true,
     text: 'You look around the area you woke up in, checking for clues. All those hours binge-watching Sherlock on Neflix come in handy as you immediately  home in on a clue -  a big pile of items lying right next to you. You inspect them a bit closer. It seems to be an assortment of weapons as well as a map with a big red X marking a castle on it. You can’t believe your luck. Blanon must have dropped these things when he kidnapped the princess/prince! You decide to grab two weapons and then follow the map to Blanon’s apparently-not-quite-so-super-secret lair. Which melee weapon do you choose?'
   },
   {
     title: 'Weapon Select',
     enemy: null,
+    intro: true,
+    weaponSelect: true,
     text: 'Sweet! What could possibly go wrong when you have a weapon like this? Now choose your Ranged Weapon, brave hero/ine!'
+  },
+  {
+    title: 'Your Journey Begins',
+    enemy: null,
+    intro: true,
+    text: 'You set off on your journey and after many days and many adventures (coming to you as DLC for a very reasonable price in the near future) you arrive at the front gate of the dark, scary-looking castle that is marked on the map. It does not exactly look inviting and if you have to go in there you sure hope it’s the right one and you won’t end up finding some weird Toad-Person telling you that the princess/prince is in another castle. One never knows these days…'
   },
   {
     title: 'Sewers',
