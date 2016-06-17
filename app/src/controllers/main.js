@@ -42,7 +42,7 @@ export default function main($scope){
       $scope.inputA = 'Squirt Gun';
       $scope.inputB = 'Hard Cookies';
       $scope.inputC = 'Compact Discs';
-      $scope.inputD = 'Flip Phones';
+      $scope.inputD = 'Stapler';
     }
     else if (!$scope.currentLevel().intro && !$scope.currentLevel().postBattle) {
       $scope.inputA = 'To Battle!';
@@ -94,7 +94,7 @@ export default function main($scope){
         }
       }else if (button === 'D') {
         $scope.decision = 'Stop hitting yourself';
-        $scope.player.health -= settings.rangedDamage;
+        $scope.player.hp -= settings.rangedDamage;
       }
     }else{
       // NOt in combat
@@ -109,6 +109,34 @@ export default function main($scope){
       }
 
       $scope.player.stamina = 100;
+
+      if ($scope.currentLevel().weaponSelect && $scope.levelCounter === 1) {
+        if (button == 'A') {
+          $scope.player.melee = 'Rubber Chicken';
+        }
+        else if (button == 'B') {
+          $scope.player.melee = 'Wooden Spoon';
+        }
+        else if (button == 'C') {
+          $scope.player.melee = 'Manolo Stilettos';
+        }
+        else if (button == 'D') {
+          $scope.player.melee = 'Bowling Pin';
+        }
+      } else if ($scope.currentLevel().weaponSelect && $scope.levelCounter === 2) {
+        if (button == 'A') {
+          $scope.player.ranged = 'Squirt Gun';
+        }
+        else if (button == 'B') {
+          $scope.player.ranged = 'Hard Cookies';
+        }
+        else if (button == 'C') {
+          $scope.player.ranged = 'Compact Discs';
+        }
+        else if (button == 'D') {
+          $scope.player.ranged = 'Stapler';
+        }
+      }
     }
 
 

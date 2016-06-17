@@ -44,4 +44,11 @@
    color: orangered;
 }
 
+.level-text {
+    width: 70%;
+    margin: 0 auto;
+    line-height: 1.7;
+    text-indent: 50px;
+}
+
 

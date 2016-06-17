@@ -3,8 +3,8 @@
   <div id="textBox" ng-controller="textbox">
     <h1>{{$parent.currentLevel().title}}</h1>
     <br>
-    <p>{{$parent.currentLevel().text}}</p>
-    <p>In Combat: {{$parent.inCombat()}} // levelCounter: {{$parent.levelCounter}}</p>
+    <p class="level-text">{{$parent.currentLevel().text}}</p>
+
     <p>{{$parent.result()}}</p>
     <p>{{$parent.mobaction}}<p>
   </div>
@@ -33,6 +33,7 @@
         <p>HP: <span>{{$parent.player.hp}}</span></p>
         <md-progress-linear md-theme="statusBars" class="md-accent" md-mode="determinate" value="{{$parent.player.stamina}}"></md-progress-linear>
         <p>Stamina: <span>{{$parent.player.stamina}}</span></p>
+        Melee: {{$parent.player.melee}} <br> Ranged: {{$parent.player.ranged}}
       </div>
 
 

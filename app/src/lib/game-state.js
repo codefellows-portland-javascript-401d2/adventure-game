@@ -35,7 +35,7 @@ gameState.levels = [
   },
   {
     title: 'Battle in the Sewers',
-    enemy: new Monster('Fancy Snakes', 30, 5, 0.9, 'r'),
+    enemy: new Monster('Fancy Snakes', 20, 5, 0.9, 'r'),
     text: 'You come face to face with a coterie of Fancy Snakes. You know, like normal Snakes only way more fancy. They squint meanly at you from below their top-hats and hiss dangerously.',
     ranged: 'The Fancy Snakes hurl their monocles at you!',
     melee: 'The Fancy Snakes nibble your toes'
@@ -53,7 +53,7 @@ gameState.levels = [
   },
   {
     title: 'Battle in the Dungeon',
-    enemy: new Monster('Dancing Bears', 30, 5, 0.9, 'r'),
+    enemy: new Monster('Dancing Bears', 20, 5, 0.9, 'r'),
     text: 'You come face to face with a troupe of Dancing Bears. They shimmy and shake, their big fluffy bear butts swaying from side to side. The biggest, meanest looking one gestures for you to step forward. You have been challenged to a dance-off! ',
     ranged: 'The Dancing Bears traumatize you with some Dirty Dancing moves (the movie, dude. The movie!)',
     meleee: 'The Dancing Bears push you to the ground and proceed to moonwalk all over you!'
@@ -71,7 +71,7 @@ gameState.levels = [
   },
   {
     title: 'Battle in the Antechamber',
-    enemy: new Monster('Prancing Unicorns', 30, 5, 0.9, 'r'),
+    enemy: new Monster('Prancing Unicorns', 20, 5, 0.9, 'r'),
     text: 'You come face to face with a capricious herd of Prancing Unicorns. They are super glamorous with their shiny hair and flowing, luscious manes. Their glorious horns sparkle even in the dimness of the room. With a smirk you call them ‘Prancing Ponies’. They don’t get the reference. You decide they need to die.',
     ranged: 'The Prancing Unicorns befuddle you with their Rainbow Farts!',
     melee: 'The Prancing Unicorns charge and stick you with the pointy end of their horns!'
@@ -89,7 +89,7 @@ gameState.levels = [
   },
   {
     title: 'Battle in the Oratory',
-    enemy: new Monster('OctoCat', 30, 5, 0.9, 'r'),
+    enemy: new Monster('OctoCat', 20, 5, 0.9, 'r'),
     text: 'You come face to face with a bevy of Coding Octocats. These freaks of nature are half cute, half hideous and completely obnoxious. They usually gather a cult of nerdy Nerds around them as guards but today you lucked out and they are by themselves. Don’t get too comfortable though these things are as mean as it gets!',
     ranged: 'The Coding Octocats throw a merge-conflict at you. The sheer confusion this brings sends you to your knees!',
     melee: 'The Coding Octocats Add-Commit-Push you to the ground and use their tentacles to slap you silly!'
@@ -103,7 +103,7 @@ gameState.levels = [
   {
     title: 'Base of the High Tower',
     enemy: null,
-    text: 'You find yourself at the bottom of a tower with a spiraling staircase seeming to go up endlessly. A lifetime spent playing video games has taught you one important lesson. The boss is always at the end of the dungeon and the princess/prince is kept in the highest tower. Both these things seem to conveniently come together right here. You are definitely in the right spot! Gripping your {{weapon1}} and your {{weapon2}} tightly you start the long climb.'
+    text: 'You find yourself at the bottom of a tower with a spiraling staircase seeming to go up endlessly. A lifetime spent playing video games has taught you one important lesson. The boss is always at the end of the dungeon and the princess/prince is kept in the highest tower. Both these things seem to conveniently come together right here. You are definitely in the right spot! Gripping your weapons tightly you start the long climb.'
   },
   {
     title: 'Final Battle',
@@ -117,6 +117,12 @@ gameState.levels = [
     enemy: null,
     postBattle: true,
     text: 'You have done it, cupcake! You have defeated the evil, mean super villain Baddie! You smile at the corpse and say “ Oh,did I forget to mention? I am a Ninja-Wizard-Warrior-Pirate!”  Ha! That sure showed him!'
+  },
+  {
+    title: 'Blanon Has Been Defeated!',
+    enemy: null,
+    postBattle: true,
+    text: 'With Blanon dead you rush to rescue the princess/prince from the top of the tower. S/he falls into your arms and softly whispers in your ear, Thank you sooooo much! You are the best friend ever! Princess/Prince friend-zones you for 1 gazillion points of damage! Can\'t win \'em all, cupcake. Can\'t win \'em all. '
   },
 ];
 
