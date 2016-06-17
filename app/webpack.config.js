@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/main.js',
   output: {
     path: '../server/public',
     filename: 'bundle.js'
@@ -26,14 +26,17 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['es2015'],
           cacheDirectory: true
         }
       },
       {
         test: /\.css$/,
         loader: 'style!css'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html'
       }
     ]
-  } 
+  }
 };
