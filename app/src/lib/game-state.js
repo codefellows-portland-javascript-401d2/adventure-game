@@ -41,6 +41,12 @@ gameState.levels = [
     melee: 'The Fancy Snakes nibble your toes'
   },
   {
+    title: 'The Battle Has Been Won',
+    enemy: null,
+    postBattle: true,
+    text: 'With the battle won you now need to decide how to proceed from here. There are 4 stairways leading out of the sewers. One to the south, north, west and east respectively. All four look equally dark, dank and uninviting. Which one shall it be?'
+  },
+  {
     title: 'Dungeon',
     enemy: null,
     text: 'You come up the stairs huffing and puffing. What a climb! You slowly take in your surroundings. You’re in a long corridor with jail cells on either side. At the far end is a table loaded with all kinds of whips, chains and other assorted torture equipment. Not that you know what any of it is. You only heard about these things. Once. From a friend. You don’t talk to them anymore. Also, you make a note to yourself to delete your browser history as soon as you get home. No, no reason. What?  Uh, anyway…..you realize that you have now entered the dungeons. You hear a laugh coming from one of the cells.'
@@ -51,6 +57,12 @@ gameState.levels = [
     text: 'You come face to face with a troupe of Dancing Bears. They shimmy and shake, their big fluffy bear butts swaying from side to side. The biggest, meanest looking one gestures for you to step forward. You have been challenged to a dance-off! ',
     ranged: 'The Dancing Bears traumatize you with some Dirty Dancing moves (the movie, dude. The movie!)',
     meleee: 'The Dancing Bears push you to the ground and proceed to moonwalk all over you!'
+  },
+  {
+    title: 'The Battle Has Been Won',
+    enemy: null,
+    postBattle: true,
+    text: 'Phew! What a fight. You can’t wait to get out of these creepy dungeons. You rush to the end of the hallway and are now faced with a new dilemma. There are two doorways in front of you. A dark mist seems to emerge from the doorway on the left while the one on the right gives off a foul stench. Suddenly the dungeons don’t seem so bad after all, do they? '
   },
   {
     title: 'Antechamber',
@@ -65,6 +77,12 @@ gameState.levels = [
     melee: 'The Prancing Unicorns charge and stick you with the pointy end of their horns!'
   },
   {
+    title: 'The Battle Has Been Won',
+    enemy: null,
+    postBattle: true,
+    text: 'That was close! Good thing that your weapons are so handy for fighting in close quarters. You sure knew what you were doing when you picked them. You pat yourself on the back, take a deep breath and move on. There’s two doors in front of you. You think you can hear faint voices coming from whatever is behind the door on the left. The door on the right has a heavy lock but you’re sure a it won’t withstand a blow from your trusty weapon.'
+  },
+  {
     title: 'Oratory',
     enemy: null,
     text: 'You walk through the door and immediately recognize it as an Oratory. More than that it’s a pretty little Oratory all decked out for…….a wedding?!? Blanon intends to marry the princess/prince! Anger courses through your body. Years of flirting, subtle hints and sweaty palms finally seemed to be going somewhere and now this evil, mean super villain swoops in and intends to steal your price, uh I mean love?  Over your dead body! Which unfortunately becomes a definite possibility here as you realize you are not alone.'
@@ -77,17 +95,29 @@ gameState.levels = [
     melee: 'The Coding Octocats Add-Commit-Push you to the ground and use their tentacles to slap you silly!'
   },
   {
+    title: 'The Battle Has Been Won',
+    enemy: null,
+    postBattle: true,
+    text: 'Well that went better than expected - you are still alive after all. You notice with satisfaction that the Oratory is now a complete mess and proceed to kick over the last standing statue with glee. You are the anti-wedding planner! Ha! You kinda did like the color of the flower arrangements though. You make a mental note for your own wedding with the princess/prince and then proceed on to the two stairways you can see on the other side of the room.'
+  },
+  {
     title: 'Base of the High Tower',
     enemy: null,
     text: 'You find yourself at the bottom of a tower with a spiraling staircase seeming to go up endlessly. A lifetime spent playing video games has taught you one important lesson. The boss is always at the end of the dungeon and the princess/prince is kept in the highest tower. Both these things seem to conveniently come together right here. You are definitely in the right spot! Gripping your {{weapon1}} and your {{weapon2}} tightly you start the long climb.'
   },
   {
     title: 'Final Battle',
-    enemy: new Monster('Evil Wizard Blanon', 1000, 25, 0.8, 'r'),
+    enemy: new Monster('Evil Wizard Blanon', 10, 10, 0.8, 'r'),
     text: 'You come face to face with the evil, mean super villain Baddie Blanon himself! \“Ha, ha!”, he gloats “the princess/prince is mine! I cannot be defeated! Many ninjas, wizards, warriors and even pirates have tried. None survived. Prepare for your death!”. You smirk. Where all the others have failed you shall succeed. “I am not one of these things” you inform him-who-we-have-already-named, and he grows even more confident as he starts to attack. ',
     ranged: 'Blanon shoots you with the power of the Biforce!',
     melee: 'Blanon shows some surprisingly fancy footwork and attacks you with his sword. As the steel cuts into your flesh you recognize the fabled Apprentice Sword.'
-  }
+  },
+  {
+    title: 'Blanon Has Been Defeated!',
+    enemy: null,
+    postBattle: true,
+    text: 'You have done it, cupcake! You have defeated the evil, mean super villain Baddie! You smile at the corpse and say “ Oh,did I forget to mention? I am a Ninja-Wizard-Warrior-Pirate!”  Ha! That sure showed him!'
+  },
 ];
 
 

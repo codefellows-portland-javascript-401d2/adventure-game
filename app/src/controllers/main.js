@@ -44,7 +44,7 @@ export default function main($scope){
       $scope.inputC = 'Compact Discs';
       $scope.inputD = 'Flip Phones';
     }
-    else if (!$scope.currentLevel().intro) {
+    else if (!$scope.currentLevel().intro && !$scope.currentLevel().postBattle) {
       $scope.inputA = 'To Battle!';
     }
     else {
