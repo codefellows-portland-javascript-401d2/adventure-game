@@ -67,12 +67,9 @@ export default function main($scope){
         battle.getsHit($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
-<<<<<<< HEAD
-=======
           $scope.mob = $scope.currentLevel();
           $scope.decision = null;
           $scope.mobaction = null;
->>>>>>> dave03
         }
       }
       else if (button === 'B') {
@@ -83,12 +80,9 @@ export default function main($scope){
         battle.getsHit($scope.mob, $scope.player);
         if ($scope.mob.hp < 1){
           $scope.levelCounter += 1;
-<<<<<<< HEAD
-=======
           $scope.mob = $scope.currentLevel();
           $scope.decision = null;
           $scope.mobaction = null;
->>>>>>> dave03
         }
       }else if (button === 'C') {
         $scope.decision = 'You try to evade';
