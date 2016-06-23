@@ -1,0 +1,53 @@
+<div id="container" ng-controller="main">
+
+  <div id="textBox">
+    <h1>{{currentLevel().title}}</h1>
+    <br>
+    <p class="level-text">{{currentLevel().text}}</p>
+
+    <p class="action-text">{{result()}}</p>
+    <p class="action-text">{{mobaction}}<p>
+  </div>
+
+  <div id="gameBox">
+    <md-button class="btn btn-a md-raised" ng-click="input('A')">
+      {{inputA}}
+    </md-button>
+    <md-button ng-show="currentLevel().enemy !== null || currentLevel().weaponSelect > 0 || currentLevel().postBattle" class="btn btn-b md-raised" ng-click="input('B')">
+      {{inputB}}
+    </md-button>
+    <md-button ng-show="currentLevel().enemy !== null || currentLevel().weaponSelect > 0" class="btn btn-c md-raised" ng-click="input('C')">
+      {{inputC}}
+    </md-button>
+    <md-button ng-show="currentLevel().enemy !== null || currentLevel().weaponSelect > 0" class="btn btn-d md-raised" ng-click="input('D')">
+      {{inputD}}
+    </md-button>
+
+    <br>
+
+    <div id="statusContainer" layout="row" layout-align="space-around none" ng-show="inCombat() === true">
+
+      <div id="playerData" flex="25" layout="column" layout-align="center start">
+        <p ng-hide="editing === true" ng-click="editing = !editing" class="playerName">{{player.name}}</p>
+        <input ng-show="editing === true" ng-model="player.name" ng-blur="editing = !editing">
+        <md-progress-linear md-theme="statusBars" class="md-primary" md-mode="determinate" value="{{player.hp}}"></md-progress-linear>
+        <p>HP: <span>{{player.hp}}</span></p>
+        <md-progress-linear md-theme="statusBars" class="md-accent" md-mode="determinate" value="{{player.stamina}}"></md-progress-linear>
+        <p>Stamina: <span>{{player.stamina}}</span></p>
+        Melee: {{player.melee}} <br> Ranged: {{player.ranged}}
+      </div>
+
+
+      <div id="monsterData" flex="35" layout="column">
+        <div>
+          <p>Enemy: <span>{{mob.name}}</span></p>
+        </div>
+        <div md-theme="statusBars">
+          <md-progress-linear class="md-primary" md-mode="determinate" value="{{mob.hp * 100 / mob.maxHealth}}"></md-progress-linear>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
